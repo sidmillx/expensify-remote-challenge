@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
        
 
-    function checkAuthenticationStatus(){
          //Check auth token
         let authToken = getCookie("authToken");
         // const authToken = localStorage.getItem("authToken")
@@ -20,11 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             transactionContent.forEach(element => element.style.display = "none");
             loginContent.style.display = "block";
         }
-    }
-
-     checkAuthenticationStatus();
-
-   
+    
 
 
         // AUTHENTICATE USER
@@ -141,6 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
         //GET TRANSACTIONS
         async function fetchTransactions(authToken){
             showLoader();
+
+            console.log("INSIDE FETCH FUNCTION FETCHIN.............!")
             try {
                 const res = await fetch(`proxy.php?action=getTransactions&authToken=${encodeURIComponent(authToken)}&returnValueList=transactionList`, {
                     method: "GET",
@@ -148,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 const data = await res.json();
-                console.log("GET DATA: ", data);
+                console.log("GET DATA.....................: ", data);
                 hideLoader();
                 renderTransactions(data.transactionList);
             } catch (e){
