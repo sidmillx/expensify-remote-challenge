@@ -1,5 +1,8 @@
 <?php
 
+ini_set('memory_limit', '512M');
+
+
 $orig = "http://localhost";
 header("Access-Control-Allow-Origin: $orig");
 header("Access-Control-Allow-Credentials: true");
