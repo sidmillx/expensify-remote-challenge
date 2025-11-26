@@ -242,3 +242,58 @@ input {
 .buttonsContainer button {
     margin-left: 10px;
 }
+
+.filtersContainer{
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.filtersContainer label {
+    font-size: 0.9rem;
+}
+
+.filtersContainer > div {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+#filter {
+    border: none;
+    background: transparent;
+    color: #03d47c;
+    cursor: pointer;
+}
+
+#filter:hover {
+    text-decoration: underline;
+}
+
+.merchant-cell{
+    cursor: pointer;
+}
+
+.money-column{
+    text-align: right;
+}
+
+.merchant-cell.expanded{
+    white-space: normal;
+    word-wrap: break-word;
+    background: #f0f8f0 !important;
+    max-width: none;
+    min-width: 250px;
+}
+
+
+#createTransactionError, #loginError {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    max-width: 400px;
+}

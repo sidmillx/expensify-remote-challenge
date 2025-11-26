@@ -10,6 +10,12 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 
 $api_base = "https://www.expensify.com/api/";
+// $partnerName = "applicant";
+// $partnerPassword = "d7c3119c6cdab02d68d9";
+
+$partnerName = getenv("EXPENSIFY_PARTNER_NAME");
+$partnerPassword = getenv("EXPENSIFY_PARTNER_PASSWORD");
+
 
 // Get action from request
 $action = $_GET["action"] ?? $_POST["action"] ?? null;
@@ -23,8 +29,8 @@ if($action === "authenticate"){
 
     // Convert JSON to x-www-form-urlencoded
     $data = http_build_query([
-    "partnerName" => $data['partnerName'],
-    "partnerPassword" => $data['partnerPassword'],
+    "partnerName" => $partnerName,
+    "partnerPassword" => $partnerPassword,
     "partnerUserID" => $data['partnerUserID'],
     "partnerUserSecret" => $data['partnerUserSecret']
 ]);
@@ -33,10 +39,21 @@ if($action === "authenticate"){
     $authToken = $_GET["authToken"] ?? "";
     $returnValueList = $_GET["returnValueList"] ?? "transactionList";
 
-    $url = $api_base . "Get?" . http_build_query([
+    // Optional start and end date
+    $startDate = $_GET["startDate"] ?? null;
+    $endDate = $_GET["endDate"] ?? null;
+
+    $query = [
         "authToken" => $authToken,
         "returnValueList" => $returnValueList
-    ]);
+    ];
+
+    
+    if($startDate) $query["startDate"] = $startDate;
+    if($endDate) $query["endDate"] = $endDate;
+    
+    
+    $url = $api_base . "Get?" . http_build_query($query);
     $method = "GET";
 
 } else if($action === "createTransaction") {
