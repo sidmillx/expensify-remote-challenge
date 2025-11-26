@@ -1,5 +1,5 @@
 // VALIDATE MERCHANT NAME INPUT
-function validateMerchantName(name){
+export function validateMerchantName(name){
 
     const trimmedName = name.trim(); // trim whitespace
 
@@ -19,7 +19,7 @@ function validateMerchantName(name){
 
 
 // VALIDATE AMOUNT INPUT
-function validateAmount(input){
+export function validateAmount(input){
     if (!/^\d+(\.\d{1,2})?$/.test(input)) return {isValid: false, error: "Amount can have up to two decimal places and not include invalid characters!"};
     const amount = parseFloat(input);
     if(isNaN(amount)) return {isValid: false, error: "Amount must be a valid number!"};
