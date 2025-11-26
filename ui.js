@@ -8,7 +8,7 @@ const transactionContent = document.querySelectorAll(".transactionContent");
 
 
 // SHOW PROTECTED CONTENT
-function showProtected(){
+export function showProtected(){
     loginContent.style.display="none";
     protectedContent.style.display="block";
     logoutButton.style.display = "inline-block";
@@ -16,7 +16,7 @@ function showProtected(){
 }
 
 // SHOW LOGIN CONTENT
-function showLogin(){
+export function showLogin(){
     loginContent.style.display="block";
     protectedContent.style.display="none";
     transactionContent.forEach(element => element.style.display = "none");
@@ -24,11 +24,11 @@ function showLogin(){
 }
 
 // SHOW LOADER
-function showLoader(){
+export function showLoader(){
     document.getElementById("spinner").classList.add("show");
 }
 
 // HIDE LOADER
-function hideLoader(){
+export function hideLoader(){
     document.getElementById("spinner").classList.remove("show");
 }
