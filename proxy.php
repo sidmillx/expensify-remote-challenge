@@ -3,18 +3,18 @@
     ini_set('memory_limit', '512M');
 
 
-    $orig = "http://localhost";
-    header("Access-Control-Allow-Origin: $orig");
+    // $orig = "http://localhost";
+    // header("Access-Control-Allow-Origin: $orig");
     header("Access-Control-Allow-Credentials: true");
-    header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    // header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+    // header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 
     $api_base = "https://www.expensify.com/api/";
     // $partnerName = "applicant";
     // $partnerPassword = "d7c3119c6cdab02d68d9";
 
-    // $partnerName = getenv("EXPENSIFY_PARTNER_NAME");
-    // $partnerPassword = getenv("EXPENSIFY_PARTNER_PASSWORD");
+    $partnerName = getenv("EXPENSIFY_PARTNER_NAME");
+    $partnerPassword = getenv("EXPENSIFY_PARTNER_PASSWORD");
 
 
     // Get action from request
