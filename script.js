@@ -247,15 +247,15 @@ document.addEventListener("DOMContentLoaded", () => {
         ***************************/
         const logoutBtn = document.getElementById("logoutBtn");
         logoutBtn.addEventListener("click", async () => {
-            showLoader();
             try{
                 await fetch("proxy.php?action=logout", {credentials: "include"});
+                showLogin();
             } catch (e){
                 console.error("Internal Server Error during logout!");
-            } finally {
-                hideLoader();
-                showLogin();
-            }
+            } 
+
+                
+        
         });
 
 
