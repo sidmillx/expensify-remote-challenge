@@ -25,10 +25,10 @@ export function showLogin(){
 
 // SHOW LOADER
 export function showLoader(){
-    document.getElementById("spinner").classList.add("show");
+    document.getElementById("transacationSpinner").classList.add("show");
 }
 
 // HIDE LOADER
 export function hideLoader(){
-    document.getElementById("spinner").classList.remove("show");
+    document.getElementById("transactionSpinner").classList.remove("show");
 }
