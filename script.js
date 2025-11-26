@@ -178,8 +178,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if(data.success || data.transactionID){
                 modal.classList.remove("open");
                 createTransactionForm.reset();
+                alert("Transaction added successfully!");
+
             }
-            console.log("CREATE TRANSACTION RECORD: ", data);
         } catch{
             alert("Failed to create transaction.");
             console.error("Internal Server Error!");
