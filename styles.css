@@ -49,6 +49,10 @@ h1.dashboard__title {
     margin: 0 auto;
 }
 
+.protectedContent {
+    display: none;
+}
+
 
 
 /******* LOGIN STYLES *******/
