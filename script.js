@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ***************************/
 
     /// GET authToken cookie
-    const authToken = getCookie("authToken");
+    let authToken = getCookie("authToken");
 
     /// CHECK IF AUTHENTICATED
     if(authToken){
