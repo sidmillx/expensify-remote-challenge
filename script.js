@@ -163,13 +163,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             const data = await res.json();
 
-            /// Check for Errors
-            if(data.jsonCode){
+            // Check for Errors
+            if(data.jsonCode && data.jsonCode !== 200){
                 if(data.jsonCode === 407){
                     expiredAuthToken();
                 }
                 console.error("API Error:", data.jsonCode, data.message);
-                alert(`Error: ${data.message || "Unknown error occured"}`);
+                alert(`Error: ${data.jsonCode} - ${data.message || "Unknown error occured"}`);
                 return;
             }
 
