@@ -243,10 +243,11 @@ h3 {
     animation: spin 1s linear infinite;
     border-top: 5px solid transparent;
 
-    position: fixed;
+    /* position: fixed;
     top: 50%;
     left: 50%;
-    z-index: 999;
+    z-index: 999; */
+    margin: 15px auto;
 
     transform: translate(-50%, -50%);
 
