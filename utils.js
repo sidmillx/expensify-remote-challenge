@@ -4,7 +4,7 @@ function formatMoney(amount){
 }
 
 // Render transactions in table
-function renderTransactions(transactions){
+export function renderTransactions(transactions){
 
     const transactionBody = document.getElementById("transactionTableBody");
     transactionBody.innerHTML = '';
@@ -28,14 +28,14 @@ function renderTransactions(transactions){
 *************************/
 
 // CHECK FOR EXPIRED AUTH AND LOGOUT
-async function expiredAuthToken(){
+export async function expiredAuthToken(){
     alert("Your session has expired. Please log in again.");
     await fetch("proxy.php?action=logout", {credentials: "include"});
     showLogin();
 }
 
 // GET COOKIE BY NAME
-function getCookie(name) {
+export function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
