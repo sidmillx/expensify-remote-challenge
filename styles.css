@@ -150,7 +150,7 @@ button {
 
 .buttonContainer {
     width: 100%;
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
     padding: 0 10px;
     margin-bottom: 20px;
