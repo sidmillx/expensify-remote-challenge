@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
             hideLoader();
 
             // Check for Errors
-            if(data.jsonCode){
+            if(data.jsonCode && data.jsonCode !== 200){
                 if(data.jsonCode === 407){
                     expiredAuthToken();
                 }
@@ -223,16 +223,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            if(data.success || data.transactionID){
-
             // render transactions on success
-            renderTransactions(data.transactionList);
+            if(data.transactionList){
+                renderTransactions(data.transactionList);
             } else {
-                console.error("API ERROR: ", data.message);
-                alert("Failed to fetch transactions")
+                console.error("No transactions found in response:", data);
+                alert("No transactions found.");
             }
-            
         } catch (e){
+            hideLoader();
             console.error("Internal Server Error!");
             alert("Failed to fetch transaction.");
 
