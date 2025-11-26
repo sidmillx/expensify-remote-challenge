@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Fetch transactions and show protected content on successful login
             if(data.authToken){
+                authToken = data.authToken;
                 showProtected();
                 fetchTransactions(data.authToken) ;  
             } 
