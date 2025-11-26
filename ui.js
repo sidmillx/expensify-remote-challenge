@@ -25,7 +25,7 @@ export function showLogin(){
 
 // SHOW LOADER
 export function showLoader(){
-    document.getElementById("transacationSpinner").classList.add("show");
+    document.getElementById("transactionSpinner").classList.add("show");
 }
 
 // HIDE LOADER
