@@ -1,6 +1,6 @@
 /*** UI UTILITY FUNCTIONS ***/ 
 const loginContent = document.getElementById("loginContent");
-const protectedContent = document.getElementById("protectedContent");
+const protectedContent = document.querySelectorAll(".protectedContent");
 const logoutButton = document.getElementById("logoutBtn");
 const transactionContent = document.querySelectorAll(".transactionContent");
 
