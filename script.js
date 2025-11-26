@@ -223,10 +223,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
+            if(data.success || data.transactionID){
+
             // render transactions on success
             renderTransactions(data.transactionList);
+            } else {
+                console.error("API ERROR: ", data.message);
+                alert("Failed to fetch transactions")
+            }
+            
         } catch (e){
-            hideLoader();
             console.error("Internal Server Error!");
             alert("Failed to fetch transaction.");
 
