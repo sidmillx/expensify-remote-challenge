@@ -7,17 +7,18 @@
 </head>
 <body>
 
+    <!-- HEADER COMPONENT -->
     <div class="header">
         <div class="logo">Expenses</div>
-        <button class="button--primary transactionContent" id="logoutBtn">Logout</button>
+        <button class="button button--primary transactionContent" id="logoutBtn">Logout</button>
     </div>
 
     <div class="wrapper">
+        <!-- LOGIN COMPONENT -->
         <div id="loginContent">
-            <!-- Add your login form here -->
             <form id="loginForm">
                 <h2>Welcome Back</h2>
-                <p class="sub-text">Sign in to your account to access your dashboard</p>
+                <p class="login__subtitle">Sign in to your account to access your dashboard</p>
                 <div>
                     <label for="email">Email</label>
                     <input type="email" name="user_id" id="email" placeholder="Enter your email" required>
@@ -27,98 +28,97 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="Enter your password" required>
                 </div>
-                <div id="loginError" class="error-message"></div>
+                <div id="loginError" class="login__error"></div>
 
-                <button id="submit" class="button--primary">Sign in</button>
+                <button id="submit" class="button button--primary">Sign in</button>
 
             </form>
         </div>
 
 
 
+        <!-- PROTECTED ELEMENTS -->
         <div id="protectedContent">
             
-            <h1 class=" title">Transactions</h1>
-            <div class="buttonContainer ">
-                <div class="">All your transactions in one place</div>
-                <button id="createTransBtn" class=" button--primary">Create Transaction</button>
+            <h1 class="dashboard__title">Transactions</h1>
+
+            <!-- CREATE TRANSACTION COMPONENT -->
+            <div class="buttonContainer">
+                <div>All your transactions in one place</div>
+                <button id="createTransBtn" class="button button--primary">Create Transaction</button>
             </div>
 
+            <!-- FILTERS COMPONENT -->
             <div class="filtersContainer ">
-                <div>
-                    <div>
+                <div class="filters__row">
+                    <div class="filters__item">
                         <label for="startDate">Start Date: </label>
                         <input type="date" id="startDate">
                     </div>
                     
-                    <div>
+                    <div class="filters__item">
                         <label for="endDate">End Date: </label>
                         <input type="date" id="endDate">
                     </div>
                 </div>
                 
-
-                <button id="filter">Apply Filter</button>
+                <button id="filter" class="button">Apply Filter</button>
             </div>
 
-
+            <!-- TRANSACTIONS TABLE -->
             <div id="transactionTable">
                 <h3>Recent Activity</h3>
                 <table>
-
                     <thead>
                         <tr>
                             <th>Transaction Date</th>
                             <th>Merchant</th>
-                            <th class="money-column">Amount($)</th>
+                            <th class="transactions__amount">Amount($)</th>
                         </tr>
                     </thead>
 
-                    <tbody id="transactionTableBody">
-                        <!-- Add the transaction rows here -->
-                    </tbody>
+                    <tbody id="transactionTableBody"></tbody>
 
                 </table>
             </div>
 
-            <div id="transactionForm">
-                <!-- Add your create transaction form here -->
-                
-                
-            </div>
-                
+            <!-- MODAL COMPONENT -->
             <div id="modal" class="modal">
-                <div class="modal-box">
+                <div class="modal__box">
                     <h3>Add Transaction</h3>
                     <form>
-                        <div class="error" id="createTransactionError"></div>
-                    <div>
-                        <label for="merchant">Merchant</label><br />
-                        <input type="text" id="merchant" name="merchant" placeholder="Enter merchant name" required/>
-                    </div>
-                    <div>
-                        <label for="amount">Amount($)</label><br />
-                        <input type="number" id="amount" name="amount" placeholder="Enter amount (e.g., 54.89)" step="0.01" min="0" required/>
-                    </div>
-                    <div>
-                        <label for="date">Date</label><br />
-                        <input type="date" id="date" name="date" required/>
-                    </div>
-                    
-                    <div class="buttonsContainer">
-                        <button id="closeModal" type="button" class="button--secondary">Cancel</button>
-                        <button id="saveTransaction" type="submit" class="button--primary">Save</button>
-                    </div>
-                </form>
+                        <div class="modal__error" id="createTransactionError"></div>
+                        <div>
+                            <label for="merchant">Merchant</label><br />
+                            <input type="text" id="merchant" name="merchant" placeholder="Enter merchant name" required/>
+                        </div>
+                        <div>
+                            <label for="amount">Amount($)</label><br />
+                            <input type="number" id="amount" name="amount" placeholder="Enter amount (e.g., 54.89)" step="0.01" min="0" required/>
+                        </div>
+                        <div>
+                            <label for="date">Date</label><br />
+                            <input type="date" id="date" name="date" required/>
+                        </div>
+                        
+                        <div class="modal__actions">
+                            <button id="closeModal" type="button" class="button button--secondary">Cancel</button>
+                            <button id="saveTransaction" type="submit" class="button button--primary">Save</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
+            <!-- SPINNER COMPONENT -->
             <div id="spinner" class="spinner"></div>
-            </div>
-        </div>
+         </div>
+    </div>
 
     <!-- Javascript Files, we've included JQuery here, feel free to use at your discretion. Add whatever else you may need here too. -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="ui.js"></script>
+    <script type="text/javascript" src="utils.js"></script>
+    <script type="text/javascript" src="validate_inputs.js"></script>
     <script type="text/javascript" src="script.js"></script>
 
 </body>

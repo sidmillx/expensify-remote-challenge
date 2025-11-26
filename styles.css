@@ -1,3 +1,14 @@
+:root {
+    --primary-color: #03d47c;
+
+    /* font-sizes */
+    --font-small: 0.9rem;
+    --font-normal: 1rem;
+    --font-large: 1.2rem;
+    --font-xlarge:1.5rem;
+}
+
+/* Global reset */
 * {
     margin: 0;
     padding: 0;
@@ -5,22 +16,42 @@
 }
 
 body {
-    /* background: red; */
-    width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #F4FBF8;
+    color: #333;
+}
+
+
+/******* HEADER STYLES  *********/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: var(--font-xlarge);
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+h1.dashboard__title {
+    margin: 10px;
 }
 
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;
 }
-.sub-text {
-    color: #555555;
-    font-size: 0.9rem;
-    margin: 10px 0 20px 0;
-    text-align: center;
-}
+
+
+
+/******* LOGIN STYLES *******/
 #loginContent {
     width: 400px;
     margin: 50px auto;
@@ -28,6 +59,13 @@ body {
     border: solid 1px #ccc;
     border-radius: 8px;
     background-color: #fff;
+}
+
+.login__subtitle {
+    color: #555555;
+    font-size: var(--font-small);
+    margin: 10px 0 20px 0;
+    text-align: center;
 }
 
 #loginContent h2 {
@@ -39,20 +77,12 @@ body {
     width: 100%;
     margin-top: 10px;
 }
-#transactionForm {
-    
-}
 
-td {
-    max-width: 500px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+
+/******** TABLE STYLES************** */
 
 #transactionTable {
     width: 1200px;
-    /* display: none; */
     background-color: #fff;
     margin: 0 auto;
     padding: 20px;
@@ -61,23 +91,30 @@ td {
 #transactionTable h3 {
     margin-bottom: 10px;
 }
+
 #transactionTable table {
     border-collapse: collapse;
     margin: 25px 0;
-    font-size: 1em;
+    font-size: var(--font-normal);
     min-width: 100%;
-
     margin: 0 auto;
+}
+#transactionTable td {
+    max-width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #transactionTable table thead tr {
-    background-color: #03d47c;
+    background-color: var(--primary-color);
     text-align: left;
-    color:white;
+    color:#fff;
 }
 
 #transactionTable th, #transactionTable td {
     padding: 12px 15px;
+    width: 33.33%;
 }
 
 #transactionTable tbody tr {
@@ -88,10 +125,26 @@ td {
     background-color: #f3f3f3;
 }
 
-#transactionTable th,
-#transactionTable td {
-    width: 33.33%;
+
+.transactions__amount{
+    text-align: right;
 }
+
+.merchant-cell{
+    cursor: pointer;
+}
+
+.merchant-cell.expanded{
+    white-space: normal;
+    word-wrap: break-word;
+    background: #f0f8f0 !important;
+    max-width: none;
+    min-width: 250px;
+}
+
+
+
+/********* MODAL STYLES  *************/
 .modal{
     position: fixed;
     top: 0;
@@ -114,33 +167,34 @@ td {
     z-index: 9999;
 }
 
-.modal-box {
-    background: white;
+.modal__box {
+    background: #fff;
     padding: 25px;
     border-radius: 8px;
     min-width: 500px;
 }
 
-label {
-    color: #888;
-}
-
-
 #modal h3 {
     margin-bottom: 20px;
 }
 
-button {
+
+
+/****** GENERAL STYLES ******/
+label {
+    color: #888;
+}
+
+.button {
     padding: 12px 15px;
-    outline: none;
     border: none;
     border-radius: 8px;
     cursor: pointer;
 }
 
 .button--primary {
-    background-color: #03d47c;
-    color: white;
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
 .button--secondary {
@@ -156,41 +210,27 @@ button {
     margin-bottom: 20px;
 }
 
-/* #createTransBtn {
-    margin-right: 30px;
-} */
-
-
-.header {
-    height: 80px;
+input {
     width: 100%;
-    background-color: #fff;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+    /* width: 250px; */
     padding: 10px;
-    margin-bottom: 30px;
-}
-.logo {
-    color: #03d47c;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-left: 30px;
+    border-radius: 8px;
+    outline: none;
+    border: solid 1px #ccc;
+    margin: 5px 0 10px 0;
+
 }
 
-h1.title {
-    margin: 10px;
+.modal__actions button {
+    margin-left: 10px;
 }
-
 
 h3 {
-    font-size: 1.2rem;
-   
+    font-size: var(--font-large);
 }
 
-/* SPINNER */
+
+/****** SPINNER STYLES ********/
 .spinner {
     width: 45px;
     height: 45px;
@@ -219,30 +259,7 @@ h3 {
 }
 
 
-input {
-    width: 100%;
-    /* width: 250px; */
-    padding: 10px;
-    border-radius: 8px;
-    outline: none;
-    border: solid 1px #ccc;
-    margin: 5px 0 10px 0;
-
-}
-
-/* label {
-    margin: 5px 0 10px 0;
-} */
-
-.buttonsContainer {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.buttonsContainer button {
-    margin-left: 10px;
-}
-
+/******* FILTER STYLES  **********/
 .filtersContainer{
     display: flex !important;
     flex-direction: row;
@@ -254,7 +271,7 @@ input {
 }
 
 .filtersContainer label {
-    font-size: 0.9rem;
+    font-size: var(--font-small);
 }
 
 .filtersContainer > div {
@@ -266,7 +283,7 @@ input {
 #filter {
     border: none;
     background: transparent;
-    color: #03d47c;
+    color: var(--primary-color);
     cursor: pointer;
 }
 
@@ -274,26 +291,12 @@ input {
     text-decoration: underline;
 }
 
-.merchant-cell{
-    cursor: pointer;
-}
-
-.money-column{
-    text-align: right;
-}
-
-.merchant-cell.expanded{
-    white-space: normal;
-    word-wrap: break-word;
-    background: #f0f8f0 !important;
-    max-width: none;
-    min-width: 250px;
-}
 
 
+/******* ERROR STYLES  **********/
 #createTransactionError, #loginError {
     color: red;
     margin-bottom: 10px;
-    font-size: 0.8rem;
+    font-size: var(--font-small);
     max-width: 400px;
 }
