@@ -105,9 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
             loginError.innerText = "Internal Server Error!";
             console.error("Internal Server Error!", e);
 
-        } finally {
-            hideLoader();
-        }
+        } 
     });
 
 
