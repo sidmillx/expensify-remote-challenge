@@ -10,7 +10,7 @@ const transactionContent = document.querySelectorAll(".transactionContent");
 // SHOW PROTECTED CONTENT
 export function showProtected(){
     loginContent.style.display="none";
-    protectedContent.style.display="block";
+    protectedContent.forEach(el => el.style.display = "block");
     logoutButton.style.display = "inline-block";
 
 }
@@ -18,7 +18,7 @@ export function showProtected(){
 // SHOW LOGIN CONTENT
 export function showLogin(){
     loginContent.style.display="block";
-    protectedContent.style.display="none";
+    protectedContent.forEach(el => el.style.display = "none");
     transactionContent.forEach(element => element.style.display = "none");
 
 }
